@@ -13,6 +13,31 @@ Introduction To Java
 --> Statistically typed: we should declare the datatype of a variable before initializing it.
 --> There are many more advantages in Java like multithreading, exceptional handling, automatic garbage collector and codes are maintainable
 
+Java Development Kit should be preinstalled to set the Java environment
+JDK Contains JRE & Dev Tools( Dev Tools used for development it contains a list of tools like Java Compiler, Java Document Generator, Java Debugger
+JRE Contains JVM & Java Class libraries which are used to run Java Programs
+Popular IDE for Executing the programs are IntelliJ, Eclipse, BlueJ
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+}
+--> Everything in Java runs in the class only. we can't run the programs without using classes. program execution starts from the main method. JVM searches for 
+    the main method to start the execution of the program.
+--> public is an access modifier this makes the method accessible to all other classes and packages. for running the program it should be accessible to the JVM 
+therefore it should be public.
+--> Static methods are methods that are called without creating objects. main method should be static
+--> Void is the return type of method
+--> program execution starts with main()
+--> String[] is an array of strings that is used for taking arguments into it.
+--> System is a class, out is an object of print-stream and println is a method in print-stream class.
+--> class name and file name should always be same.
+
+
+
+
+
 
 
 
