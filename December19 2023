@@ -1,1 +1,19 @@
+Introduction To Java
+--> Java was released in 1995
+--> Platform: It's a combination of Operating System and Architecture
+--> Why is Java called Platform Independent?
+    C and C++ compilers are specific to respective platforms. The program executable file on one platform is completely different from other platform. i.e., the .exe
+    file on a platform is completely different from another platform. In Java, the compiler will generate a bytecode executable on all other platforms if and only the 
+    JVM package is preinstalled in it. This Bytecode can run on multiple platforms which makes it platform-independent.
+--> JVM is a machine-specific software that is responsible for converting the bytecode into machine-specific/platform-specific language. JVM is different for every OS
+--> Java has a simple compilation and complex running process. Platform independent idea followed by python, c sharp developed by Microsoft
+--> Java is simple & secure because it doesn't have a pointers concept. memory can't be accessed easily. JVM acts as a monitoring manager for us. unsecured things don't
+    run with the code in JVM. JVM also acts as Automatic garbage collector.
+--> Java is a statistically typed language that is similar point with c and C++, therefore execution speed is high in Java C and C++ as compared with Python javascript
+--> Statistically typed: we should declare the datatype of a variable before initializing it.
+--> There are many more advantages in Java like multithreading, exceptional handling, automatic garbage collector and codes are maintainable
+
+
+
+
 
