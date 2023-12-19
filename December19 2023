@@ -1,3 +1,8 @@
+Today Covered Topics :
+Introduction to Java
+Writing 1st program in Java 
+Variables & data types in Java
+
 Introduction To Java
 --> Java was released in 1995
 --> Platform: It's a combination of Operating System and Architecture
@@ -34,6 +39,48 @@ therefore it should be public.
 --> System is a class, out is an object of print-stream and println is a method in print-stream class.
 --> class name and file name should always be same.
 
+Variable naming convention
+
+-> Rule 1 no special characters & keywords are allowed in naming convention.
+   Invalid names :- ||a, a#, a!, else, do and all keywords of Java language
+-> Use camel case for variable names 🐫
+   Ex:- name, nameOfPlayer, ageOfPlayer, current Year
+-> For indicating constants write the variable name in upper case & if there are more than 1 word seperate them using a single _
+   Ex:- final int MAX_AGE= 200;
+        final int max=20;
+
+Types of variables
+
+Primitive (int, char, boolean, byte, short, float, double,)
+Non Primitive ( String, Array, classes)
+Non primitives are objects of some classes these classes may be user-defined classes or string arrays these things are also classes in Java. When we create an array
+we are creating the objects in Java
+
+Types of variables:- 
+
+-> Boolean - true or false
+
+-> Byte - A byte is stored using 8 bits. It is used to store the small values
+   Ex:- marks of students
+   The range of bytes is -128 to 127 (-2 power 7 to 2 power 7 - 1)
+   In 8 bits 1 bit is used to store the sign of the number remains 7 bits are used to store the number in the form of binary way.
+   Signed numbers in Java use 2s complement to store the number in the system.
+   Positive numbers are stored by converting decimal to binary number
+   2power 8 numbers is the capacity of byte including 0 in it
+
+--> Short - 16 bits are required to store the number in short. The range of short is -32768 to 32767 ( -2power 15 to 2 power 15 - 1)
+
+--> int is 32 bit & long is 64bit
+    Range of int is -2147483648 to 2147483647 ( - 2power 31 to 2 power 31 - 1)
+--> Range of long -2 power 63 to 2 power 63- 1)
+    If we need to store a larger number we can use BigInteger class.
+
+--> Float -single precision 32-bit
+--> Double - double precision 32-bit
+--> Char - it uses 16 bits to store allowing the Unicode characters.
+    0 to 2 power 16-1
+--> While doing the division of decimal numbers we should mention f with it.
+    Float div= 12.3f/23.7f
 
 
 
