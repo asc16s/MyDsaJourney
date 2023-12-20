@@ -1,3 +1,12 @@
+Today learned Topics
+-> Swap 2 numbers
+-> wrapper classes
+-> Facts on non-primitive data types
+-> Input in Java using BufferedReader and Scanner classes
+-> Output in Java
+-> Escape sequences in Java and Bitwise and,or and not left shift right shift
+
+
 Swapping Two Numbers:
 To Swap 2 numbers we will use a separate temp variable.
 Q: a=20 and b=30. Make b=20 and a=30?
@@ -131,5 +140,14 @@ Escape Sequences:
 --> Print: welcome to \geeksforgeeks on screen
 --> use single backslash infront of the backslash to print the back slash
     EX: System.out.println("welcome to \\geeks for geeks");
---> valid escape sequences are
+--> valid escape sequences are \t, \b, \n , \f, \r, \\, \', \"
+--> Tab (4 spaces) \t
+
+Bitwise operator :
+int a=2;
+int ~a=?
+~a is nothing but inverse a. range of int is (-2 power 31) to (2 power 31 -1). 
+--> Note: 2 power 32 -1 = 111.....1(32 1's)
+--> https://practice.geeksforgeeks.org/batch/cip-1/track/cip-java-intro-var-operator/video/MTE1MA%3D%3D please visit this link for more clarification
+--> Bitwise operator part 3 pending (Right shift operator)
 
