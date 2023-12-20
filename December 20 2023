@@ -105,3 +105,31 @@ class Main{
                System.out.println(a+" "+b+" "+c+" "+s);
 }
 }
+
+Output in Java :
+
+System.out.print();
+System.out.println();// printing in new lines
+System.out.format() or System.out.printf();// used for floating point numbers, dates and times
+
+class Test{ 
+      public static void main(String[] args)
+      {
+        int a=20,b=40;
+        double c=Math.PI;
+        System.out.format("%f",c); // printing pi value
+        System.out.println("%.2f",c); // printing only 2 decimals after the point (3.14)
+        System.out.println("%5.2f",c); // printing an extra space infront of 3.14 to print 5 characters space3.14(total 5 character)
+      }
+}
+
+Escape Sequences:
+\ backslash
+--> Print: welcome to "geeksforgeeks" on screen
+--> when we use double quotes in the middle then we should use back slash infront of double quote
+    EX: System.out.println("Welcome to \"geeksforgeeks\");
+--> Print: welcome to \geeksforgeeks on screen
+--> use single backslash infront of the backslash to print the back slash
+    EX: System.out.println("welcome to \\geeks for geeks");
+--> valid escape sequences are
+
