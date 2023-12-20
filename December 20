@@ -1,0 +1,61 @@
+Swapping Two Numbers:
+To Swap 2 numbers we will use a separate temp variable.
+Q: a=20 and b=30. Make b=20 and a=30?
+A: Logic: int a=20;
+          int b=30;
+          int temp=0;
+          temp=a;
+          a=b;
+          b=temp;
+--> Non Primitive data types are references in Java
+--> A reference is like a pointer to memory. When an object is created from a class, Java allocates enough memory required to store the object. When the newly created object is assigned to a variable, the variable gets
+    the value of the reference to the object, but not to the object itself.
+--> Memory for the non-primitive type is always allocated in heap memory
+--> Member of NON-PRIMITIVE TYPE gets default value, for int, it is 0 for float 0 for boolean it is false.
+
+Wrapper Classes:
+Every primitive type can be represented as a non-primitive type in Java by using wrapper classes.
+Wrapper Classes:
+-> int - Integer
+-> char - Character
+-> byte - Byte
+-> short - Short
+-> long - Long
+-> float - Float
+-> double - Double
+-> boolean - Boolean
+
+-> Wrapper classes can be applied in the Java Collection Framework.
+-> Auto-boxing & Auto-unboxing
+-> Auto-boxing: Primitive type can be converted into its respective Wrapper class
+-> Auto-unboxing: Non-Primitive(Wrapper class) is converted into Primitive type
+Example: 
+class Main
+{
+  public static void main(String[] args)
+  {
+    int a=40;
+    Integer b=a; // auto-boxing
+    int c=b; // auto-unboxing
+  }
+}
+
+Other Example: 
+class Main 
+{
+ public static void main(String[] args)
+ {
+   Integer a=400,b=400;
+   if(a==b)
+   {
+     System.out.println("same");
+   }
+   else
+   {
+    System.out.println("Not Same");
+   }
+
+  }
+}
+O/P: NOT SAME BECAUSE a AND b ARE REFERENCES IN JAVA BUT PLEASE NOTE THAT FOR SMALLER NUMBERS IT WORKS STRANGLY. 
+FOR SMALLER NUMBERS O/P: SAME BECAUSE REFERENCE b REFERS TO THE REFERENCE A HERE. WHEN WE CREATE THE OTHER OBJECT TO THE SAME MEMORY IT CACHES THE PREVIOUS MEMORY REFERENCE b REFERS TO REFERENCE a
