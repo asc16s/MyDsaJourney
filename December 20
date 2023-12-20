@@ -58,4 +58,50 @@ class Main
   }
 }
 O/P: NOT SAME BECAUSE a AND b ARE REFERENCES IN JAVA BUT PLEASE NOTE THAT FOR SMALLER NUMBERS IT WORKS STRANGLY. 
-FOR SMALLER NUMBERS O/P: SAME BECAUSE REFERENCE b REFERS TO THE REFERENCE A HERE. WHEN WE CREATE THE OTHER OBJECT TO THE SAME MEMORY IT CACHES THE PREVIOUS MEMORY REFERENCE b REFERS TO REFERENCE a
+FOR SMALLER NUMBERS O/P: SAME BECAUSE REFERENCE b REFERS TO REFERENCE A HERE. WHEN WE CREATE THE OTHER OBJECT TO THE SAME MEMORY IT CACHES THE PREVIOUS MEMORY REFERENCE b REFERS TO REFERENCE a
+
+Type Conversion 
+
+1) Implicit / Widening conversion 
+2) Explicit / Narrowing conversion
+   -> Widening Conversion order:
+           Byte -> short ->   -> int -> long -> float -> double  
+                          char->
+   char can be converted into int long float double this is called widening
+   -> Narrowing Conversion:
+--> double -> int, float, long, short, byte, char
+--> double a=34.5;
+--> int b=(int)a;
+--> char c=(char)a;
+
+Input in Java:
+
+1) BufferedReader class
+   Using BufferedReader class we can take input in Java by following the particular syntax:
+   it is synchronized. when we are using multiple threads BufferedReader is prefered
+   import java.io.*; // including all classes in io package
+    class Main{
+      public static void main(String[] args) throws IOException
+     {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        String a=br.readLine();
+        System.out.println(a);
+        int b = Integer.parseInt(br.readLine()); // to take int as input converting string to int
+        float k = Float.parseFloat(br.readLine());// to take float as input converting string to float
+        System.out.println(a+" "+ b +" "+k);
+     }
+   }
+
+2) Scanner class
+Using scanner class we can simply take inputs in java
+import java.util.*; // must include util package
+class Main{
+          public static void main(String[] args){
+               Scanner sc=new Scanner(System.in);
+               int a=sc.nextInt();
+               float b=sc.nextFloat();
+               long c=sc.nextLong();
+               String s=sc.nextLne();
+               System.out.println(a+" "+b+" "+c+" "+s);
+}
+}
