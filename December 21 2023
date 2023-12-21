@@ -1,0 +1,189 @@
+Today Learned Topics:
+--------------------------------------------------------------------------------------------------------
+Largest of 3 numbers : a=20 b=21 c=19
+One Solution:
+class Main
+{
+ public static void main(String[] args)
+{
+  Scanner sc=new Scanner(System.in);
+  int a=sc.nextInt();
+  int b=sc.nextInt();
+  int c=sc.nextInt();
+  if(a>=b&&a>=c)
+  {
+    System.out.println("a is the largest number");
+  }
+  else if(b>=a && b>=c)
+  {
+    System.out.println("b is greatest number");
+  }
+  else
+ {
+   System.out.println("c is greatest number");
+ }
+
+}
+}
+Another simple solution: (logic)
+int l=Math.max(a,b);
+int maxi=Math.max(l,c);
+System.out.println(maxi);
+------------------------------------------------------------------------------------------------------
+Switch statements:
+-> we can also include strings in java for switch statements. 
+-> break should be included otherwise it keeps executing the remaining statements
+
+Leap Year Concept:
+ A year is called as leap year if feb month has 29 days in it
+some conditions should be satisfied to decide the leap year
+Rule 1: It is divisible by 4 && Not divisible by 100 then it is said to be leap year Or
+Rule 2: It is Divisible by 400
+
+logic of Progam to write a year is leap year or not?
+//
+scan a integer using scanner class lets take n
+if(n%4==0 && n%100!=0 || n%400==0)
+{ s.o.p(leap year);}
+else
+{ s.o.p(Not A Leap Year); }
+
+Pyramid Patterns:
+Q: if n=3 print pyramid:
+    *
+   ***
+  *****
+A: https://practice.geeksforgeeks.org/batch/cip-1/track/cip-java-flow-loop-func/video/MjIzOQ%3D%3D
+
+Logic part :
+n represents the rows:
+in 1st row we should print 1 star
+   2nd                     3 
+   3rd                     5
+it follows a pattern 2i-1 where i is the row number. IN i(TH) ROW THERE ARE 2i-1 NUMBER OF STARS
+-> in the same way...we should print spaces infront of stars as we know that, FOR iTH ROW THERE ARE (n-i) spaces 
+EX: 1ST ROW n=3 i=1 n.o of spaces are n-i=3-1=2
+By considering 2 points we can write a program on pyramid pattern
+
+int n=3
+int i=1;
+while(i<n)
+{
+  int j=1;
+  while(j<=n-i)
+  {
+    System.out.print(" ");
+    j++;
+  }
+  int k=1;
+  while(k<=2*i-1)
+  {
+     System.out.print("*");
+     k++;
+  }
+  System.out.println();
+  i++;
+}
+
+GCD / HCF of a 2 numbers
+GCD / HCF is nothing but largest number which is dvisible by both numbers
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int a=17,b=11;
+	    int m=Math.min(a,b);
+	    int gcd=1;
+	    for(int i=1;i<m;i++)
+	    {
+	        if(a%i==0 && b%i==0)
+	        {
+	            gcd=i;
+	        }
+	    }
+	    System.out.println(gcd);
+	    
+	}
+}
+
+LCM program:
+least common factor:
+a=20 b=30 
+max possibility: a*b
+min possibility: max(a,b)
+considering this 2 cases
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int a=17,b=11;
+	    int m=Math.max(a,b);
+	    int lcm=1;
+	    for(int i=m;i<=a*b;i++)
+	    {
+	        if(i%a==0 && i%b==0)
+	        {
+	            lcm=i;
+	            break;
+	        }
+	    }
+	
+	    System.out.println(lcm);
+	    
+	}
+}
+Check n is prime or not?
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int a=sc.nextInt();
+	    if(isPrime(a))
+	    {
+	        System.out.println("Is a Prime Number");
+	    }
+	    else{
+	        System.out.println("Not a Prime");
+	    }
+	}
+	public static boolean isPrime(int a)
+	{
+	    if(a==1){return false;}
+	    else {
+	        int c=0;
+	        for(int i=2;i<a;i++)
+	        {
+	            if(a%i==0)
+	            {
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
+	}
+}
+https://practice.geeksforgeeks.org/batch/cip-1/track/cip-java-flow-loop-func/video/MTg0NQ%3D%3D
+
+fibinocci series is an application of a coding problem which is relared to stairs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
