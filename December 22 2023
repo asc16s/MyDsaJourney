@@ -41,3 +41,122 @@ Advantages of Arrays: Random access....cache friendly
 Disadvantages of Arrays: Insertion deletion are costly operations, search is slow if array is unsorted 
 Types of array on Dimentions: 1D, Multi-Dimentional array
 Types of array on Size: Fixed size, Dynamic Sixe (ArrayList,LinkedList)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+//program to count distinct elements:
+EX: 
+a={10,20,20,10,30}
+o/p: 3
+import java.util.*;
+class Main
+{
+   public static void main(String[] args)
+   {
+     Scanner sc=new Scanner(System.in);
+     int n=sc.nextInt();
+     int[] a=new int[n];
+     for(int i=0;i<a.length;i++)
+     {
+       a[i]=sc.nextInt();
+     }
+     boolean m=true;
+     int c=0;
+     for(int i=0;i<a.length;i++)
+     {
+       for(int j=i-1;j>=0;j--)
+       {
+          if(a[i]==a[j])
+          {
+             m=false;
+          }
+       }
+       if(m==true)
+       {
+          c++;
+       }
+       m=true;
+     }
+   }
+}
+
+// alternate program to find count of distinct numbers:
+a={10,20,20,10,30}
+import java.util.*;
+class Main
+{
+  public static void main(String[] args)
+  {
+     Scanner sc=new Scanner(System.in);
+     int n=sc.nextInt();
+     int[] a=new int[n];
+     for(int i=0;i<a.length;i++)
+     {
+       a[i]=sc.nextInt();
+     }
+     HashSet<Integer> b=new HashSet<Integer>();
+     for(int i=0;i<a.length;i++)
+     {
+       b.add(a[i]);
+     }
+     System.out.println(b.size());
+  }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//check array is sorted or not?
+EX: A={10,20,2,80}   b={5,20,22}
+    O/P: no          o/p: Yes
+
+import java.util.*;
+class Main
+{
+  public static void main(String[] args)
+  {
+     Scanner sc=new Scanner(System.in);
+     int n=sc.nextInt();
+     int[] a=new int[n];
+     for(int i=0;i<a.length;i++)
+     {
+       a[i]=sc.nextInt();
+     }
+     if(isSorted(a))
+     {
+         System.out.println("yes");
+     }
+     else{
+         System.out.println("no");
+     }
+  }
+  public static boolean isSorted(int[] a)
+  {
+      for(int i=0;i<a.length-1;i++)
+      {
+          if(a[i]>a[i+1])
+          {
+              return false;
+          }
+      }
+      return true;
+  }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
