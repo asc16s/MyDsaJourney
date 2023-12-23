@@ -1,0 +1,130 @@
+Strings in java
+->character array / arraylist
+-> String class (objects are immutable once created cannot be modified. if we try to modify then same type of another object is created. it is thread safe)
+   --> String a={"sai charan"};
+   --> String a=new String("sai charan"); 
+-> String Buffer class (objects are mutable and used for multi threaded program environment)
+   --> StringBuffer b=new StringBuffer("sai charan");
+-> String Builder class (objects are mutable and used for single threaded program environment)
+   --> StringBuilder c=new StringBuilder("sai charan");
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+String methods:
+Interesting fact about strings:
+public class Main
+{
+	public static void main(String[] args) {
+		String s1="geeks";
+		String s2=s1;
+		if(s1==s2)
+		{
+		    System.out.println("h");
+		}
+		s1=s1+"f"; // when we do concat the string it creates a new object internally
+		if(s1==s2) // therefore here s1!=s2
+		{
+		    System.out.println("g");
+		}
+		
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+Demostrating String methods:
+
+-> s1.equalsIgnoreCase() // Ignore the upper or lower case and checks whether 2 strings are equal or not
+-> string.length() // checks the length of string
+-> string.substring(index)
+-> string.substring(index a, index b) where a is included and b is excluded
+-> String.charAt(index) to print a single character in s string
+-> s1.contains(s2); contains method is true if s2 is present in s1 else returns false. boolean 
+-> s1.equals(s1); equals method is used to check whether 2 strings are equal or not? boolean
+-> s1.compareTo(s2) CHECKS LEXICOGRAPHICALLY GREATER THAN OR LESS THAN OR EQUAL.
+-> s1.indexOf(s2); checks the 1st occurance of s2 in s1 string. and returns the index of it. if s2 is not present in s1 then it returns -1. it is an extension of contains() method 
+-> s1.indexOf(s2,index); checks the occurance from the given index name itself and returns the index number
+    EX: s1="geeks"
+    s2="geeks for geeks"
+    s2.indexOf(s1,1); then it checks from 1 index and continues until end of string
+    O/P: 10
+
+class Main
+{
+  public static void main(String[] args)
+  {
+    String s="geeks";
+    String h="geeks for geeks";
+    String d="geeks";
+    System.out.println(s.length()); // length of the string can be obtained by using string.length() function
+    System.out.println(s.charAt(2)); // used to print the character in a particular index in a string. string.charAt(index);
+    System.out.println(s.substring(2)); // used to print the substring from the given index.
+    System.out.println(s.substring(2,3)); // used to print substring from a given range [2,5)
+    System.out.println(h.contains(s)); // checking whether h contains s string in it. return true if yes. else its false
+    System.out.println(d.equals(s)); // checking whether d ans s are equal or not
+    System.out.println(s1.indexOf(s2)); // checking 1st occurance of s2 in s1 if it is not present simply returns -1
+    System.out.println(h.indexOf(d,1)); // checks the occurance of from index 1 and return index number if it present or else returns -1 
+    System.out.println(d.toUpperCase()); // converts to upper case
+    System.out.println(d.toLowerCase()); // converts to lower case
+    String s1="gEEKs";
+    String s2="GeekS";
+    System.out.println(s1.equalsIgnoreCase(s2)); //ignore the case & checks whether 2 strings are equal or not
+    String trimming = s1.substring(2); // trims the s1 string from index 2 to end 
+    String trm= s1.substring(2,4);  // trims s1 string from index 2 to index 4-1
+    
+  }
+}
+O/P: 5
+     e
+     eks
+     e
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java String Pool
+if 2 string objects have same data. then they both refer to the same memory location it wont creates a new memory block in heap unless we create and allocate the new memory using new keyword
+EX: O/p of the below program is:
+class Main()
+{
+ public static void main(String[] args)
+ {
+  String a="sai charan";
+  String b="sai charan";
+  if(a==b)
+  {
+   System.out.println("equal");
+  }
+  else
+  {
+   System.out.println("Not Equal");
+  }
+  String c=new String("sai charan");
+  if(a==c) 
+  { 
+    System.out.println("equal");
+  }
+  else
+  {
+    System.out.println("Not Equal");
+  }
+ }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+compareTo method lexicographically greater.
+public class Main
+{
+	public static void main(String[] args) {
+		String a="st";
+		String b="sarng";
+		int res=b.compareTo(a);
+		if(res==0)
+		{
+		    System.out.println("same");
+		}
+		else if(res>0)
+		{
+		    System.out.println("lexicographically greater");
+		}
+		else{
+		    System.out.println("lexicographically lesser");
+		}
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
