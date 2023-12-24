@@ -12,3 +12,10 @@ System.out.format("%.2f",f); // prints 2 digits after point
 System.out.println("%5.2f",f)// total 5 characters includes decimal,2 characters after decimal and 3 and empty space 
 o/p: 3.14
 o/p:  3.14
+------------------------------------------------------------------------------------------------------------------------
+//program to print
+-> geeks for "geeks"
+-> geeks for \geeks\
+
+System.out.println("geeks for \"geeks\"");
+System.out.println("geeks for \\geeks\\);
