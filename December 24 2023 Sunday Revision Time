@@ -1,1 +1,14 @@
-
+To take char as input:BufferedReader class            |
+InputStreamReader a=new InputStreamReader(System.in); |
+BufferedReader b=new BufferedReader(a);               |
+char s=(char)b.read();                                |
+------------------------------------------------------                                                      
+To take char as input: Scanner Class                  |
+Scanner sc=new Scanner(System.in);                    |
+cha a=sc.next().charAt();                             |
+-------------------------------------------------------	  
+float f=3.14657f;
+System.out.format("%.2f",f); // prints 2 digits after point
+System.out.println("%5.2f",f)// total 5 characters includes decimal,2 characters after decimal and 3 and empty space 
+o/p: 3.14
+o/p:  3.14
