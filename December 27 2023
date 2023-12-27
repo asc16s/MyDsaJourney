@@ -1,1 +1,36 @@
+Chebyshev Distance : Max(abs(x1,t1),abs(x2,t2)) 
+Leetcode problem: https://leetcode.com/problems/minimum-time-visiting-all-points/description/
+if we need to store larger numbers in our program we can use BigInteger class which is in java.math.*; package.
+Important Syntax of BigInteger class :
+-> To take a sample number (int) we can write as:
+       BigInteger a=new BigInteger("2");
+-> int a=2;
+   BigInteger s=BigInteger.valueOf(a);
+-> String a="123" only number strings are allowed to change into BigInteger
+   BigInteger s= new BigInteger(a);
+-> In BigInteger class every operation done using methods itself
+   EX:
+   BigInteger a=new BigInteger("1");
+   BigInteger b=new BigInteger("2");
+   a.add(b); // addition 
+   a.subtract(b); //subtraction
+   a.divide(b); //division
+   a.multiply(b); //multiplication
+   a.remainder(b); //remainder
+   a.compareTo(b); //3 probabilities either -1,0,1. -1 for aa<bb; 0 for aa==bb; 1 for aa>bb
+   a.add(BigInteger.ONE); // increments by 1 like, i++ in int
+
+-->   BigInteger to int, float, long, double, string conversion:
+      BigInteger aa=BigInteger.valueOf(1);
+	    BigInteger bb=BigInteger.valueOf(1);
+	    int a=aa.intValue(); // BigInteger to int values
+	    long b=bb.longValue(); // BigInteger to long value
+	    float c=bb.floatValue(); // BigInteger TO FLOAT VALUE
+	    double d=aa.doubleValue(); // BigInteger to double value conversion
+	    String s=bb.toString(); // BigInteger to String conversion
+	    System.out.println(a);
+	    System.out.println(b);
+	    System.out.println(c);
+	    System.out.println(d);
+	    System.out.println(s);
 
