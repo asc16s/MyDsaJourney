@@ -33,4 +33,30 @@ Important Syntax of BigInteger class :
 	    System.out.println(c);
 	    System.out.println(d);
 	    System.out.println(s);
+//
+Program to demonstrate:
+isProbablePrime() // method in BigInteger class to check whether its prime or not
+nextProbablePrime() // method to find the next prime number for given number
 
+import java.math.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int a=sc.nextInt();
+	    System.out.println(isPrime(a));
+            System.out.println(nextPrime(a));
+	}
+	public static boolean isPrime(int a)
+	{
+	    BigInteger b=BigInteger.valueOf(a);
+	    return b.isProbablePrime(1);
+	}
+        public static int nextPrime(int a)
+        {
+           BigInteger m=BigInteger.valueOf(a);
+           String ans=m.nextProbablePrime().toString(); //converting BigInteger to String i.e, to make string as int
+           return Integer.parseInt(ans);
+	}
+}
