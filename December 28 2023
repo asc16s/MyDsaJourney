@@ -1,0 +1,13 @@
+Lambda Expressions:   Are Anonymous fuctions
+Anonymous functions:  Functions with no name & we dont need to create class objects to use this functions. Lambda Expressions concept was implemented in java by using functional interface
+Functional Interface: An Interface which has exactly one abstract method in it. it may contain 0 or more default methods or static methods within it.
+Abstract methods:     Methods in which their implementation is not provided within it are known as abstract methods.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Lambda expressions are implemented by using functional interfaces. Pridicate interface is an example of functional interface.
+Syntax of pridicate interface:  interface Pridicate <T>            T can be type. Ex: ArrayList,stack,queue,LinkedList,Hash
+                                {
+                                      ....
+                                      abstract boolean test(T t)
+                                }
+Runnable interface which is used for multi-threading. we need ti implement the run method
+comparable interface which is used to sorting ans other purposes. we only need to implement the compare method, to compare the 2 objects for sorting or binary search purposes
