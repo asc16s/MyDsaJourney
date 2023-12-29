@@ -117,7 +117,51 @@ Multi-line lambda expression: (p,q)->{if(p%q==0)
                                        System.out.println(12);};
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Stream in Java is introduced in JAVA SE 8 version. every collection has its stream.
+Advantages of stream: No storage, pipeline of functions, laziness, can be infinite & parallelized, can be created from collections, arrays, file lines, methods in stream, Intstream, etc:-
+EX: PROGRAMS
+//finding sum of elements in array using stream
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	   int[] a={10,20,30,40};
+	   int ans=Arrays.stream(a)
+	                 .sum();
+	   System.out.println(ans);
+	}
+}
 
+max(), min() & average() returns optional class as return value. because is the stream is empty then it return null. assigning null to an integer is not a good thng. to avoid it we have optional classes concept.
+it returns the value in the form of optional int class. this class has methods to convert into primitive types.
+EX:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//finding max of elements in array using stream
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	   int[] a={10,20,30,40};
+	   int ans=Arrays.stream(a)
+	                 .max()
+	                 .getAsInt(); //; indicates end of stream
+	   System.out.println(ans);
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//finding average of elements in array using stream
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	   int[] a={10,20,30,40};
+	   double ans=Arrays.stream(a)
+	                 .average()
+	                 .getAsDouble(); // average comes in the form of double
+	   System.out.println(ans);
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
