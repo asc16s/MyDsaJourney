@@ -11,3 +11,124 @@ Syntax of pridicate interface:  interface Pridicate <T>            T can be type
                                 }
 Runnable interface which is used for multi-threading. we need ti implement the run method
 comparable interface which is used to sorting ans other purposes. we only need to implement the compare method, to compare the 2 objects for sorting or binary search purposes
+
+Lambda Expression in JAVA Syntax types:
+
+No parameter -> Expression      EX: () -> System.out.println("print");
+Single parameter -> Expression  EX: (p) -> System.out.println(p);
+Multi parameter -> Expression   EX: (p1,p1) -> System.out.println(p1+" "+p2);
+
+Expressions are limited. they dont contain statements such as if / for / assignment operators. In order to do more complex operations A code block can be used with
+curly braces.if lambda expressions need to return a value then we must include return statement.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// lambda expression with no parameter method void type
+interface test 
+{
+    void print();
+}
+public class Main
+{
+    public static void func(test t)
+    {
+        t.print();
+    }
+	public static void main(String[] args) {
+		func(()-> System.out.println("Hello World"));
+	}
+}
+--------------------------OR-----------------------------
+interface test 
+{
+    void print();
+}
+public class Main
+{
+    public static void func(test t)
+    {
+        t.print();
+    }
+	public static void main(String[] args) {
+		test t=()->System.out.println("Hello World");
+		t.print();
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// lambda expression with single parameter method return type is void
+interface test 
+{
+    void print(int f);
+}
+public class Main
+{
+
+	public static void main(String[] args) {
+		test t=s->System.out.println(s*2);
+		t.print(2);
+	}
+}
+----------------------------OR----------------------------------
+
+interface test {
+    void print(int r);
+}
+public class Main
+{
+    public static void func(test t,int r)
+    {
+        t.print(r);
+    }
+	public static void main(String[] args) {
+		func(p->System.out.println(p*3),3);
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//lambda expression for multi parameter expression method return type is void
+// EX: (p1,p2) -> System.out.println();
+interface test {
+    void print(int r,int w);
+}
+public class Main
+{
+    public static void func(test t,int r,int w)
+    {
+        t.print(r,w);
+    }
+	public static void main(String[] args) {
+		func((r,w)->System.out.println(r*3+" "+w*7),3,9);
+	}
+}
+---------------------------------- OR -----------------------------------------
+//lambda expression for multi parameter expression
+// EX: (p1,p2) -> System.out.println();
+interface test {
+    void print(int r,int w);
+}
+public class Main
+{
+    
+	public static void main(String[] args) {
+		test t= (p1,p2) -> System.out.println(p1*2+" "+p2*8);
+		t.print(2,4);
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Single line lambda expression: ()->System.out.println()
+Multi-line lambda expression: (p,q)->{if(p%q==0)
+                                       System.out.println(12);};
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
