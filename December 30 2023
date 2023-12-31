@@ -1,0 +1,170 @@
+Multi-tasking Vs Multi-Threading:
+
+Multi-tasking: Multiple tasks are done simultaneously. task is a process. multiple processes can run within same time.
+Multi-threading: multiple things can be done within a single process. it improves the performance of an application. single process have multiple threads.
+
+Real-Time Applications of multi-threading:
+-> word processor (Typing,formatting,spell check happens at the same time)
+-> web server (Apache http server uses thread pools)
+   when http request is generated from the client, a thread is selected from the thread pool and serve the requests. thread pool is used to serve fast responses
+-> ide (modern ide's do compiler error check while writing the code )
+
+Advantages of Multi-threading:
+-> parallelism and improved performance
+-> responsiveness
+-> better resource utilization
+
+Disadvantages of multi-threading
+-> Difficult in writing debugging testing the code
+-> can lead to deadlock and race conditions
+
+2 ways to create thread 
+ -> Using thread class
+ -> Using runnable interface
+/* to create a new thread class should extends the Thread class. within the run method we can perform a task. 
+run method should not be static.here both threads executes within the same time.this can be observed by the below program*/ 
+class Test extends Thread{
+    public void run() 
+    {
+        for(int i=0;i<4;i++){
+        System.out.println("sai");
+        
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) throws InterruptedException {
+		Test t=new Test();
+		t.start();
+		for(int i=0;i<4;i++){
+		System.out.println("Hello World");
+		Thread.sleep(2);
+		}
+	}
+}
+O/P: Hello World
+     sai
+     sai
+     sai
+     sai
+     Hello World
+(we cant choose Thread class if we wish to extend another class along with Thread class. i.e, Multiple inheritance is not possible inn java)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Test implements Runnable{ // Runnable interface
+    public void run() 
+    {
+        for(int i=0;i<4;i++){
+        System.out.println("sai");
+        
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) throws InterruptedException {
+		Thread t=new Thread(new Test()); // creating Thread class object and passing test class object to it.
+		t.start();// to start the thread in other class
+		for(int i=0;i<4;i++){
+		System.out.println("Hello World");
+		Thread.sleep(2);
+		}
+	}
+}
+O/p: Hello World
+     sai
+     sai
+     sai
+     sai
+     Hello World
+     Hello World
+     Hello World
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exceptional Handling in Java
+
+Exceptions are abnormal conditions which occurs during the middle of the program. we as a programers can write some code to handle this abnormal conditions
+EX: cases of exceptions:
+-> Divide by zero
+-> Array index out of bound
+-> removing elements from stack when it is empty
+-> adding elements into the stack when it is full
+-> file not present
+
+Advantages of Exception Handling:
+-> Seperation from regular code or logic (our code is written within try block(exceptions) and catch block(to handle the exception occured))
+-> Grouping and differenting the exceptions.(we have checked unchecked exceptions hirarchy)
+-> propogating the error up in function call stack. (main()-> fun1()->fun2()->.....fun4()//exception raised then it stops execution and gives control to the fun3(),fun2() followed by main().
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exception hirarchy in Java
+
+                                                                  Object
+                                                                    |
+                                                                  Throwable
+                                            Error                                        Exception
+                                       -> Virtual Machine Error                              |
+                                                                                             |
+                                                                                            Run-Time Exception (UNCHECKED EXCEPTION)
+                                                                                                    -> ArthimeticException
+                                                                                                    -> NullPointerException
+                                                                                                    -> IndexOutOfBound Exception
+                                                                                                    -> IllegalArgumentException
+
+                                                                                            Compile-Time Exception (CHECKED EXCEPTION)
+                                                                                                    -> IOException
+                                                                                                    -> FileNotFoundException
+                                                                                                    -> ClassNotFoundException
+                                                                                                    -> SQLException
+IN CHECKED EXCEPTION: THE PROGRAM WONT COMPILE UNTIL WE INCLUDE A PIECE OF EXCEPTION CODE IN CHECKED EXCEPTION (compiler forces you to handle the checked exceptions)
+EX: NOT INCLUDING THE  Throws IOException to the method in which we doubt what causes the exception. the program wont compiled until we include extra code to it.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java has 5 keywords to exception handling: Try, Catch, finally, throw, throws
+try
+{
+ // write code that might throw exception
+}
+catch(Type1 t1) 
+{
+  // code that handle Type1 t1 exception
+}
+catch(Type2 t2) 
+{
+ // code that handle Type2 t2 exception
+}
+finally
+{
+ // irrespective of exception is thrown or not it must be executed
+}
+-> for a single try block we may have multiple catch blocks to handle the exceptions
+-> common code like closing the file or closing the connection is written in finally block. instead of writing the same code in multiple catch blocks, we write the common code in a single finally bloack itself
+-> All Type exceptions are must and should be the subclasses of throwable class.
+-> if we create new exception class then it should extends the Throwable class
+-> throw keyword is used to throw the exception.
+-> throws keyword is used when we feel like a method or function may throws an exception.
+-> we may include multiple exceptions seperating by comma
+   EX: public void fun() throws FileNotFoundException, IOException
+       {
+           Scanner sc=new Scanner(new file("a.txt")); //OPENING A FILE OF A (IF A FILE IS NOT PRESENT IT THROWS A EXCEPTION WE ARE MENTIONING THE SAME THING AT THE METHOD SIGNATURE TO HANDLE IT EXPLICITLY)
+       }
+either we should handle through try catch block (or) throw the exception to upper method in the function stack 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
