@@ -1,1 +1,120 @@
+ Streams Concept:
 
+Source -> Intermediate functions.............. -> Terminate Function
+
+https://ide.geeksforgeeks.org/qrUDVEmGfB
+//print 1st n natural numbers which contains the digit 5 in it
+import java.util.*;
+import java.io.*;
+import java.util.stream.*;
+import java.util.function.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Stream.iterate(1 ,x -> x+1)
+	          .filter(x -> x.toString().contains("5"))
+	          .limit(10)
+	          .forEach(System.out::println);
+	}
+}
+-------------------------------------------------------------------------------------------------------
+// print the strings that begin with a and end with c in lexicographical order 
+// in streams we have imbuilt things to develop a thing to make a software developer life easy
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        String a[]={"asv","acd","rfc","tgh","asc"};
+        Arrays.stream(a)
+              .filter(x->x.startsWith("a"))
+              .filter(x->x.endsWith("c"))
+              .sorted()
+              .forEach(System.out::println);
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+// print the strings that begin with a and end with c in lexicographical order 
+// in streams we have imbuilt things to develop a thing to make a software developer life easy
+import java.util.*;
+import java.util.stream.*;
+class Student {
+    int roll;
+    String name;
+    int marks;
+    Student(int roll,String name,int marks)
+    {
+        this.roll=roll;
+        this.name=name;
+        this.marks=marks;
+    }
+    int getRoll(){
+        return roll;
+    }
+    int getMarks()
+    {
+        return marks;
+    }
+    String getName()
+    {
+        return name;
+    }
+    
+}
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Student[] arr={new Student(1,"sai",35),new Student(2,"charan",36),new Student(3,"akula",40)};
+        double a=Arrays.stream(arr)
+                    .mapToInt(x->x.getMarks()) // non primitives are converted into int stream
+                    .average()
+                    .getAsDouble();
+        System.out.println(a);            
+                    
+                    
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+import java.util.stream.*;
+class Student {
+    int roll;
+    String name;
+    int marks;
+    Student(int roll,String name,int marks)
+    {
+        this.roll=roll;
+        this.name=name;
+        this.marks=marks;
+    }
+    int getRoll(){
+        return roll;
+    }
+    int getMarks()
+    {
+        return marks;
+    }
+    String getName()
+    {
+        return name;
+    }
+    
+}
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Student[] arr={new Student(1,"sai",35),new Student(2,"charan",36),new Student(3,"akula",40)};
+        Map<Integer,String> e=Arrays.stream(arr)
+                    .collect(Collectors.toMap(Student::getRoll,Student::getName));
+        for(Map.Entry<Integer,String> em:e.entrySet())
+        {
+            System.out.println(em.getKey()+" "+em.getValue());
+        }
+                    
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
