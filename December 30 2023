@@ -102,10 +102,10 @@ Exception hirarchy in Java
                                                                   Object
                                                                     |
                                                                   Throwable
-                                            Error                                        Exception
-                                       -> Virtual Machine Error                              |
-                                                                                             |
-                                                                                            Run-Time Exception (UNCHECKED EXCEPTION)
+                                            Error                                            Exception
+                                       -> Virtual Machine Error                                  |
+                                       -> OutOfMemoryError                                       |
+                                       -> stackOverFlowError                                Run-Time Exception (UNCHECKED EXCEPTION)
                                                                                                     -> ArthimeticException
                                                                                                     -> NullPointerException
                                                                                                     -> IndexOutOfBound Exception
@@ -149,10 +149,53 @@ finally
        }
 either we should handle through try catch block (or) throw the exception to upper method in the function stack 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-> Exceptions must be declared
+-> Exceptions must be handles (Using Try,Catch,finally Or throw,throws)
 
+//EX:TO DEMOSTRATE COMPILE TIME & RUNTIME EXCEPTION
 
-
-
+Compile-Time Exception
+//trying to open a dummy file. this throws a compile time exception called FileNotFoundException.we may throw or catch the exception to compile our code
+import java.util.*;
+import java.io.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    try{
+	    Scanner sc=new Scanner(new File("test.in"));
+	    System.out.println("try block exit successfully");
+	    }
+	    catch(FileNotFoundException x)
+	    {
+	        System.out.println("file you are opening doesnt exist");
+	    }
+	    finally
+	    {
+	        System.out.println("executes regardless of exception occured or not occured");
+	    }
+		
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//RUNTIME EXCEPTION HANDLING
+import java.util.*;
+import java.io.*;
+public class Main
+{
+	public static void main(String[] args)  {
+	 Scanner sc=new Scanner(System.in);
+	 try{
+	 int a=Integer.parseInt(args[0]);
+	 int b=Integer.parseInt(args[1]);
+	 System.out.println(a+b);
+	 }
+	 catch(ArrayIndexOutOfBoundsException x)
+	 {
+	     System.out.println("insufficient length");
+	 }
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
