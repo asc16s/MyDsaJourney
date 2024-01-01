@@ -165,7 +165,39 @@ public class Main
 	    }
 	}
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Object-Oriented Programming Concepts:
+-> Classes & Objects
+-> Generally, we use procedural programming, but to build big software, we use object-oriented programming. we create classes and objects for different entities.
 
+Encapsulation:
+-> It serves the purpose of data hiding by making data members private. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-> CONSIDER YOU CRACKED BACK-END DEVELOPER JOB IN IBM. YOU WROTE A CLIENT CLASS AND YOUR
+   TEAM MEMBERS ARE USING THE SAME DATE CLASS TO SERVE THEIR PURPOSES
+class Client
+{
+  public int id=1234567;
+  public int getId()
+  {
+     return id;
+  }
+}
+for "public int id" access modifier is "public" which means that anyone outside the class or the package can access and change it. 
+AFTER SOME DAYS YOU REALIZED THAT YOU NEED TO CHANGE THE ID. BUT YOU CAN'T CHANGE DIRECTLY BECAUSE YOU ARE NOT SURE THAT YOUR TEAMMATES OR YOUR OFFICEMATES MAY USE
+THE SAME ID FOR SEVERAL PURPOSES. AS A DEVELOPER YOU SHOULD ALWAYS KEEP DATA MEMBERS AS PRIVATE FOR CONSISTENT CODE. THIS PROCESS IS CALLED ENCAPSULATION.
+
+TO SOLVE THIS PROBLEM, SIMPLY WE MAKE DATA MEMBERS AS private & put the methods as public to access the data member using getter class.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+By doing Encapsulation we obtain maintainability and it helps in consistency.
+
+--> marks (0 to 100) if we need to add conditions like marks should not be less than zero and greater than 100 we write all conditions at set method itself
+                     without repeating things. By making it private we also ensure that nobody was accessing and editing the marks data member.
+--> Email ID (should contain @ and .)
+
+Everthing can be written at set method itself by adding different exceptions to it to obtain our code to a consistent state.
+
+Encapsulation is defined as bundling the data members and methods.
 
 
 
