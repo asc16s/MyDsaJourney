@@ -1,0 +1,159 @@
+Method Call Stack Exception
+if main()->m1()->m2(){// here exception occured..if finally block is present it executes finally & control goes to m1() and checks whether it contains exception handler
+or not.if there is no exception handler..control goes to main() method}
+Ex: 
+public class Main
+{
+	public static void main(String[] args) {
+	   try
+	   {
+	    m1();
+	   }
+	   catch(ArithmeticException x)
+	   {
+	       System.out.println("ArithmeticException caught...");
+	       x.printStackTrace();// prints the flow of exception in the program. programmer understand better.
+	   }
+	   finally{
+	       System.out.println("hi");
+	   }
+	   System.out.println("Developer life goes on"); // it executes i.e exception was caughtby catch block;
+	}
+	public static void m1()
+	{
+	    try{
+	    int a=2;
+	    int b=0;
+	    System.out.println(a/b);// Arthimetic Exception Occured it returns the control to main method.
+	    }
+	    finally
+	    {
+	        System.out.println("finally block in m1() method");// regardless of Exception occurs or not finally block executes 
+	    }
+	    System.out.println("it doesnt executes because catch doesnt handles the exception");// it only executes if exception was caught in catch block but there is no catch block here go controls goes to main()method
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exceptions can be handled through throw and throws keywords
+step 1-> Declare Exception in the method signature using throws keyword
+        if m1() may throws Arthimatic Exception then please follow below syntax in m1() method signature
+        EX:
+        public static void m1() throws ArithmeticException
+        {
+
+        }
+
+step 2-> Throwing an exception by creating an object to it.
+         When it encounters abnormal situation. it throw the object of respective exception.
+         EX: 
+         public static void m1() throws ArithimeticException
+         {
+           int a=0;
+           int b=10;
+           if(a==0)
+           {
+              throw new ArithimeticException();
+           }
+         }
+step 3-> Catching exception by using try catch blocks
+         when method throw exception the jvm searches backward through call stack to match the perfect exception handler to it.
+Demonstrating example:
+       public class Main
+{
+	public static void main(String[] args) throws ArithmeticException {
+		try{
+		    m1();
+		}
+		catch(ArithmeticException x)
+		{
+		    System.out.println("Arithimetic exception caught...");
+		    x.printStackTrace();
+		}
+		finally
+		{
+		    System.out.println();
+		}
+		System.out.println("SDE Life goes on.....");
+	}
+	public static void m1() throws ArithmeticException // declaring that this method may through exception
+	{
+	    int a=0;
+	    int b=2;
+	    if(b==0)
+	    {
+	        throw new ArithmeticException();// throw exception object using throw keyword
+	    }
+	    System.out.println(a/b);
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+// if we doubt they may occur more than 1 exception we use multiple exception
+// multiple exception is nothing but having more catch blocks for a single try blocks
+// Demonstration of multiple Exception
+import java.util.*; 
+public class Main
+{
+	public static void main(String[] args) {
+		try{
+		    m1();
+		}
+		catch(NumberFormatException x)
+		{
+		    System.out.println("NumberFormatException caught....");
+		}
+		catch(ArithmeticException y)
+		{
+		    System.out.println("Arithimetic Exception caught...");
+		}
+		catch(InputMismatchException z)
+		{
+		    System.out.println("InputMismatchException caught...");
+		}
+		finally{
+		    System.out.println("SDE Life Continues");
+		}
+		System.out.println("Exit main");
+	}
+	public static void m1()
+	{
+	    Scanner sc=new Scanner(System.in);
+	    try{
+	    int a=sc.nextInt();
+	    int b=sc.nextInt();
+	    System.out.println(a/b);
+	    }
+	    finally{
+	        System.out.println("SDE");
+	    }
+	    System.out.println("Exit m1()");
+	    
+	}
+	
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
