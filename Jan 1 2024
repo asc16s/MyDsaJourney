@@ -132,6 +132,39 @@ public class Main
 }
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+//user defined Exception
+class InvalidAgeException extends Exception 
+{
+    public InvalidAgeException(String s)
+    {
+        super(s);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		int n=-345;
+		try{
+		m1(n);}
+		catch(InvalidAgeException x)
+		{
+		    System.out.println("InvalidAgeException caught...");
+		    x.printStackTrace();
+		   
+		}
+		finally
+		{
+		    System.out.println("SDE Life runs");
+		}
+	}
+	public static void m1(int n) throws InvalidAgeException
+	{
+	    if(n<0)
+	    {
+	        throw new InvalidAgeException("invalid age");
+	    }
+	}
+}
 
 
 
