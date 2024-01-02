@@ -1,0 +1,326 @@
+Access modifiers: private    -> scope lies within the class.
+                  default    -> scope lies within the package.  
+                  protected  -> scope lies within the package Or subclasses(child class) of respective classe.
+                  public     -> accessible from anywhere
+
+-------------------------------------------------------------------------------------------------
+EX Demonstration of private
+----------------------------
+class A{
+    private int a=1; // scope of datamember lies within the class
+    public int getA()
+    {
+        return a;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		A b=new A();
+		System.out.println(b.a);// error: a has private access in A class
+	}
+}
+-------------------------------------------------------------------------------------------------
+EX Demonstration of default
+----------------------------
+File p1:
+package p1;
+public class Demo 
+{
+    void fun() // if access modifier is not given then it considers default in which scope lies within the package
+    {
+        System.out.println("He's a hero");
+    }
+}
+---------------------------------------------------------------------------
+File p2:
+import p1.*; // importing the p1 package
+package p2;
+public class Main {
+    public static void main(String[] args)
+    {
+        Demo d=new Demo();// creating the object to Demo class
+        d.fun();// error fun is accessible within the package only.
+    }
+}
+--------------------------------------------------------------------------------------------------
+EX Demonstration of protected
+------------------------------
+FILE p1
+package p1;
+public class Demo 
+{
+    protected void fun() // if access modifier is not given then it considers default in which scope lies within the package
+    {
+        System.out.println("He's a hero");
+    }
+}
+--------------------------------------------------------------------------------
+FILE p2
+import p1.*;// importing the p1 package
+package p2;
+public class Main extends Demo {
+    public static void main(String[] args)
+    {
+        Demo d=new Demo();// creating the object to Demo class
+        d.fun();
+    }
+}
+O/P: He's a hero
+No error i.e, our Main class extends Demo class. for protected it is accessible within package Or accessible to its respective packages.
+----------------------------------------------------------------------------------------------------------------------------------------------
+Demonstrating public 
+--------------------
+File p1
+package p1;
+public class Demo 
+{
+    public void fun() // if access modifier is not given then it considers default in which scope lies within the package
+    {
+        System.out.println("He's a hero");
+    }
+}
+
+-----------------------------------------------
+File p2
+import p1.*; // importing the p1 package
+package p2;
+public class Main {
+    public static void main(String[] args)
+    {
+        Demo d=new Demo();// creating the object to Demo class
+        d.fun();
+    }
+}
+O/p: He's a hero
+public is accessible from anywhere and everywhere.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+this reference is used to refer a object when we have multiple objects in a class.
+this is used for passing parameters
+EX:
+class Test {
+    int x,y;
+    Test(int x,int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+    Test()
+    {
+        this(10,20);
+    }
+    int getX()
+    {
+        return x;
+    }
+    int getY()
+    {
+        return y;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Test t=new Test();
+		
+		System.out.println(t.getX()+" "+t.getY());
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+final Keyword in Java
+ -> final to datamember (reinitialization generates error)
+ -> final to method     (we cannot override the methods)
+ -> final to class
+
+
+
+final to data member:
+       -> Local Final Variable
+       -> Instance Final Variable
+              -> declaring instance final variable within constructor
+              -> direct initialization
+              -> within curly braces
+       -> static final variables
+              -> declaring static final variable directly
+              -> using static block
+              -> small note for static final variable
+final to method:
+
+1) Local Final variable
+public class Main
+{
+	public static void main(String[] args) {
+	   final  int a=40;
+		 a=3;
+		System.out.println(a); //error  a assigned to final
+	}
+}
+2) Instance final variable
+They can be declared in 3 ways
+1) directly assigning to final variable
+2) by using class constructor
+3) by using final block curly braces
+----------------------------------------------------------------
+1) Direct assigning to instance final variable
+public class Main
+{
+    final int a=2345; // direct initialization
+	public static void main(String[] args) {
+	   Main n=new Main();
+	   System.out.println(n.a); 
+	}
+}
+--------------------------------------------------------------
+2) curly braces
+public class Main
+{
+    final int a;
+    {
+        a=23456; // using curly braces
+    }
+	public static void main(String[] args) {
+	   Main n=new Main();
+	   System.out.println(n.a); 
+	}
+}
+---------------------------------------------------------------
+3) class constructor
+public class Main
+{
+    final int a;
+    Main()
+    {
+        a=987;//using class constructor
+    }
+	public static void main(String[] args) {
+	   Main n=new Main();
+	   System.out.println(n.a); 
+	}
+}
+----------------------------------------------------------------
+static final variable
+static final variables can be accessed without creating the objects
+public class Main
+{
+    static final int a;
+    static{
+     a=2345; //initializer block with keyword static block
+    }
+	public static void main(String[] args) {
+	   
+	   System.out.println(a); 
+	}
+}
+Or
+public class Main
+{
+    static final int a=3456;
+	public static void main(String[] args) {
+	   
+	   System.out.println(a); 
+	}
+}
+Note: static final variables are declared with caps. In most of the companies we use them with caps
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Final to Method: final methods can't be overridden
+
+class Base {
+    final public void m1()
+    {
+        System.out.println("sai");
+    }
+}
+class Derived extends Base{
+    public void m1(){
+        System.out.println("charan");
+    }
+}
+public class Main 
+{
+    
+	public static void main(String[] args) {
+	   Base b=new Derived();
+	   b.m1(); // error i.e trying to override the final method
+	}
+}
+-------------------------------------------------------------------------------
+Final in class
+we can't create child classes for final class
+final class Base {
+    final public void m1()
+    {
+        System.out.println("sai");
+    }
+}
+class Derived extends Base{ // error at line 257 final classes can't be inherited
+    public void m1(){
+        System.out.println("charan");
+    }
+}
+public class Main 
+{
+    
+	public static void main(String[] args) {
+	   Base b=new Derived();
+	   b.m1(); // error i.e final methods can't be overridden
+	}
+}
+final reference variable can only refer to single object itself. refer the video 
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
