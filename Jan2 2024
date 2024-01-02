@@ -269,6 +269,208 @@ public class Main
 }
 final reference variable can only refer to single object itself. refer the video 
 -------------------------------------------------------------------------------------
+static variable: a variable that is shared among all other objects in a class is known as a static variable.
+
+Demonstrating static variable :
+class School {
+    int roll;
+    String name;
+    static int c=0;// static variable 
+    School(String name)
+    {
+        this.name=name;
+        roll=++c;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    public int getRoll()
+    {
+        return roll;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    School s=new School("Krishnaveni");
+	    School s1=new School("monti");
+		System.out.println(s1.getName()+" "+s1.getRoll());
+		System.out.println(School.c); // static variable can be directly called through class.variable 
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+static method can serve 2 purposes
+-> To access and modify static variables(we can also access & modify  static variables by using non-static methods). It is strongly recommended to use static methods to access or modify static variables
+-> To use functional programming. like writing functions within a class to find checkPrime, Fibonacci, etc we generally use static methods for functional programming.
+class School {
+    int roll;
+    String name;
+    private static int c=0;// static variable 
+    School(String name)
+    {
+        this.name=name;
+        roll=++c;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    public int getRoll()
+    {
+        return roll;
+    }
+    static int getCount()
+    {
+        return c;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    School s=new School("Krishnaveni");
+	    School s1=new School("monti");
+		System.out.println(s1.getName()+" "+s1.getRoll());
+		System.out.println(School.getCount());// static methods can be directly called through class.staticMethodName()
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note points:-
+-> static members can be accessed without creating objects
+-> static methods can't access non static methods
+-> non-static methods can access static methods
+-> static method do not have access to this keyword
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inhertitance
+
+class Person {
+    int id;
+    String name;
+    Person(int id,String name)
+    {
+        this.id=id;
+        this.name=name;
+    }
+    
+}
+class Student extends Person {
+    char section;
+    Student(int id,String name,char section)
+    {
+        super(id,name); // calling the parent class constructor for assign the same values
+        this.section=section;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Student s=new Student(1,"Sai charan",'A');
+		System.out.println(s.id+" "+s.name+" "+s.section);
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Super Keyword in Java
+  -> To call parent constructor
+  -> To access data members and methods of parent class
+---------------------------------------------------------------------------
+Types of inheritance
+single inheritance        A
+                          |
+                          B
+------------------------------------
+multi-level inheritance   A
+                          |
+                          B
+                          |
+                          C
+----------------------------------------------
+Hierarchical inheritance
+                    A
+                    |
+  ----------------------------------------
+ |             |           |             |
+ B             C           D             E
+
+Multiple inheritance: it is not allowed to use classes.
+
+        A              B
+        |              |
+        ----------------
+               |
+               |
+               C
+Here class C extends classes A and B it is not possible
+-------------------------------------------------------------------------------------------------------
+Accessing private data members:
+class Base {
+    private int x;
+    int getX()
+    {
+        return x;
+    }
+}
+class Derived extends Base {
+    int z=3;
+    void print()
+    {
+        System.out.println(getX()+" "+z);// we can access parent method directly
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Derived d=new Derived();
+	    d.print();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
