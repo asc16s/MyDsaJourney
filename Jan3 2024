@@ -1,0 +1,157 @@
+Polymorphism : Method Overloading
+               Method Overriding
+Method Overloading: Rules: 
+                    -> Method Overloading can be achieved by:
+                             -> Changing the number of parameters in method
+                             -> Changing the data type of parameters in method
+                             -> Mix of both
+                    -> We cant do method overloading by only changing return type 
+                             EX: void print()
+                                 int print() Here, compiler generates an errror. i.e unable to decide the calling method
+                    -> If a method with exact datatype is not found, then automatic type conversion happens
+                        EXAMPLE:
+                                public class Main
+                                {
+	                                public static void main(String[] args) {
+	                                 byte a=25;
+		                               System.out.println(sum(a));
+	                                  }
+                               	   public static double sum(double y)
+	                                {
+	                                  return y;//autoconversion
+	                                }	
+                                }
+Method Overriding:
+class A {
+    public void print()
+    {
+        System.out.println("sai");
+    }
+}
+class B extends A{
+    public void print() // method overriding 
+    {
+        System.out.println("charan");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	 A a=new B(); // parent class can create child objects...but child class can't create objects to parent class
+	 a.print();
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class A {
+    public void print()
+    {
+        System.out.println("sai");
+    }
+}
+class B extends A{
+    public void print() // method overriding 
+    {
+        System.out.println("charan");
+    }
+}
+class C extends A{
+    public void print()
+    {
+        System.out.println("Akula");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	 A a=new B(); // parent class can create child objects...but child class can't create objects to parent class
+	 A b=new C();
+	 a.print();
+	 b.print();
+	 
+	 
+	}
+}
+o/p: charan 
+     Akula
+-----------------------------------------------------------------------------------------------
+class A {
+    public static void print() // static method
+    {
+        System.out.println("sai");
+    }
+}
+class B extends A{
+    public static void print() // static method 
+    {
+        System.out.println("charan");
+    }
+}
+class C extends A{
+    public static void print() // static method
+    {
+        System.out.println("Akula");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	 A a=new B(); // i.e theya re static methods. method call happens with reference variable
+	 A b=new C();// for non-static methods. method call happens by objects
+	 a.print();
+	 b.print();
+	 
+	 
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Abstraction:-> can achieved by abstract methods Or By interfaces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
