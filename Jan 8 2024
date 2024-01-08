@@ -1,0 +1,151 @@
+Analysis of Algorithms:
+ Asymptotic analysis Rules:
+  -> if order of growth is high, then time complexity of an algorithm will be high and vice versa
+  -> this analysis does not depend upon machine architecture, programming language etc:
+  -> no need to implement just analysis the happening things inside it.
+  -> Time Complexity of an algorithm also depends upon the given inputs from the user
+     -> Best case
+     -> Average case
+     -> Worst Case (Always we care about worst case, because for writing efficient programs and to develop efficient software for all types of inputs)
+
+Order Of Growth:
+ c < loglogn < logn < n power (1/3) < n power (1/2) < n < nlogn < n power(2) < n power(3) < n power(4) < 2 power(n) < n power(n)
+
+Blind rules to find and compare order of growths:
+     1) Ignore Lower Order Terms
+     2) Ignore Leading Term Constant
+EX: f(n)= n^2+2n+1 Order of growth: n^2
+    g(n)= 100n+3   Order of growth: n
+
+Asymptotic Notations:
+ Big O : Upper or Exact
+ Theta : Exact
+ Omega : Lower or Exact
+ -> if we know exact time complexity we use Theta to represent it.
+
+Analysis of common loops: 
+   for(int i=0;i<n;i++)
+   {
+     //codeLines
+   }
+   Time Complexity: O(n)
+----------------------------------
+   for(int i=n;i>0;i--)
+   {
+     // codelines
+   }
+   Time Complexity: O(n)
+---------------------------------
+   for(int i=0;i<n;i=i*c)
+   {
+     //codelines
+   }
+   Time Complexity: Theta(ceil(logn)) 
+--------------------------------
+   for(int i=0;i<n;i=i/c)
+   {
+     //codelines
+   }
+   Time Complexity: Theta(floor(logn))
+------------------------------
+   for(int i=2;i<n;i=pow(i,c))
+   {
+     //codelines
+   }
+   Time Complexity: Theta(loglogn)
+--------------------------------------
+
+Analysis of Multiple loops:
+-----------------------------
+
+for(int i=0;i<n;i++)
+{
+  //codelines              Time Complexity: O(n)
+}
+for(int i=0;i<n;i++)
+{
+ //codelines               Time Complexity: O(n)
+}
+for(int i=0;i<100;i++)
+{
+ //codelines               Time Complexity: O(1)
+}
+Outside loops add there time complexities
+Total Time Complexity: O(n)+O(n)+O(1)=O(2n)=O(n)
+---------------------------------------------------------------
+for(int i=0;i<n;i++)          Time Complexity: O(n)
+{
+ for(int j=0;j<n;j=j*2)       Time Complexity: O(logn)
+ {
+   //codelines
+ }
+}
+Inside Loops then multiply time complexities
+Time Complexity: O(n*logn)= O(nlogn)
+---------------------------------------------------------------
+
+
+Analysis of time complexity for recursion functions:
+
+-> For recursive methods we write recursive relation. by using recursive relation we find time complexity of a given method:
+   Step1: Find recursion relation for an algorithm
+   Strp2: Draw recursion tree 
+
+EX: void fun(int n)
+    {
+       if(n<=0)
+       {
+           return
+       }
+      else
+      {
+         print("gfg");
+         fun(n/2);
+         fun(n/2);
+      }
+    }
+recursive relation: let us assume 
+Time complexity of above recursive algorithm is 
+for n>0:
+T(n)= T(n/2) + T(n/2) + Theta(1)
+for n<=0:
+T(n)= Theta(1)
+-------------------------------------------------------
+EX2: void fun(int n)
+    {
+       if(n<=0)
+       {
+           return
+       }
+      else
+      {
+         print("gfg");
+         fun(n/2);
+         fun(n/3);
+      }
+    }
+recursive relation 
+for n>0:
+T(n)= T(n/2) + T(n/3) + Theta(1)
+for n<=0:
+T(n)= Theta(1)
+-----------------------------------------------------------------
+EX: void fun(int n)
+    {
+       if(n<=0)
+       {
+           return
+       }
+      else
+      {
+         print("gfg");
+         fun(n-1);
+      }
+    }
+Recursive relation:
+for n>0:
+T(N)= T(n-1) + Theta(1)
+for n<=0
+T(N)= Theta(1)
+-----------------------------------------------------------------
+ 
