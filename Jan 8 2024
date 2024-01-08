@@ -125,7 +125,7 @@ EX2: void fun(int n)
       }
     }
 recursive relation 
-for n>0:
+for n>0: 
 T(n)= T(n/2) + T(n/3) + Theta(1)
 for n<=0:
 T(n)= Theta(1)
