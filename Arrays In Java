@@ -1,0 +1,86 @@
+Search Operation:
+ -> int[] a={12,23,34,45,56,67}
+ -> search=34
+ -> return index if search is available or return -1
+   public static int search(int[] arr,int search)
+   {
+     for(int i=0;i<arr.length;i++)
+     {
+       if(arr[i]==search)
+       {
+         return i;
+       }
+     }
+     return -1;
+   }
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Insert Operation:
+ -> int[] a={12,23,34,45,_,_}
+ -> insertE=13
+ -> pos=2
+ -> capacity=6
+ -> size=4
+ -> for fixed arrays insert can be performed if size is less than capacity
+ -> return size of the array
+ public static int insert(int[] arr,int pos,int insertE,int size,int capacity)
+{
+  if(size==capacity) return size;
+  else
+  int index=pos-1;
+  Step 1: 12 23 34 45 _ _
+  Step 2: 12 23 34 _ 45 _
+  Step 3: 12 23 _ 34 45 _
+  Step 4: 12 _ 23 34 45 _
+  Step 5: 12 13 23 34 45 _
+  for(int i=index;i>=index;i--)
+  {
+    arr[i+1]=arr[i];
+  }
+  arr[index]=insertE;  
+ }
+-------------------------------------------------------------------------------------------------------------------
+Delete Operation:
+ -> int[] a={12,23,13,45}
+ -> deleteE=13
+ -> size=4
+ -> for fixed arrays insert can be performed if size is less than capacity
+ -> return size of the array
+ public static int insert(int[] arr,int pos,int deleteE)
+ {
+   for(int i=0;i<arr.length;i++)
+   {
+     if(arr[i]==deleteE)
+     {
+         break;
+     }
+   }
+   for(int j=i;j<n-1;j++)
+   {
+     arr[i]=arr[i+1];
+   }
+   n--;
+ }
+-----------------------------------------------------------------------------------------------------------------------------
+Largest Element in Array :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
